@@ -11,6 +11,7 @@
 
 		function getBeaconData() {
 			$.getJSON("http://localhost:8080/nervousnet-api/raw-sensor-data/Beacon", function(data) {
+				$.post("http://localhost:8080/nervousnet-api/log", JSON.stringify(data));
 					$("#beacon").html(JSON.stringify(data));
 			});
 		}
