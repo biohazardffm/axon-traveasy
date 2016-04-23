@@ -20,4 +20,10 @@
 			getBeaconData();
 		}, 1000);
 
+		setTimeout(function() {
+			$.getJSON("http://localhost:8080/nervousnet-api/deviceid", function(data) {
+				$("#uuid").html(JSON.stringify(data));
+			});
+		}, 1000);
+
 })();
