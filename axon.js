@@ -47,10 +47,10 @@
 			$("#uuid").html(url);
 				$.getJSON(url, function(response) {
 					$("#response").html(response);
-					setTimeout(function() {
-						getBeaconData();
-					}, 1000);
 				});
+				setTimeout(function() {
+					getBeaconData();
+				}, 1000);
 		}
 
 })();
