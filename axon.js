@@ -50,15 +50,17 @@
 				// 	$("#response").html(JSON.stringify(response));
 				// });
 
-				$.ajax({
-					url: url
-				})
-				.done(function(data) {
-					$("#response").html(data);
-				})
-				.fail(function( jqXHR, textStatus, errorThrown ) {
-					$("#response").html(textStatus);
-				});
+				if(cb.uuid) {
+					$.ajax({
+						url: url
+					})
+					.done(function(data) {
+						$("#response").html(data);
+					})
+					.fail(function( jqXHR, textStatus, errorThrown ) {
+						$("#response").html(textStatus);
+					});
+				}
 
 				setTimeout(function() {
 					getBeaconData();
