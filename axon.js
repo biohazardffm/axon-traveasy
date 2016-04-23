@@ -56,6 +56,16 @@
 					})
 					.done(function(data) {
 						$("#response").html(JSON.stringify(data));
+						Object.keys(data).forEach(function(key) {
+							var bb = data[key];
+							if(bb.used === "") {
+								$("#"+ key).css("background-color", "green");
+							} else if(bb.used === deviceid) {
+								$("#"+ key).css("background-color", "yellow");
+							} else {
+								$("#"+ key).css("background-color", "red");
+							}
+						});
 					})
 					.fail(function( jqXHR, textStatus, errorThrown ) {
 						$("#response").html(textStatus);
