@@ -51,12 +51,18 @@
 			}
 			var url = "http://192.168.43.78.xip.io:3000/"+ folder +"/"+ cb.uuid +"/"+ deviceid;
 			$("#uuid").html(url);
-			$.getJSON(url, function(response) {
-				$("#response").html(JSON.stringify(response));
+			if(cb.uuid) {
+				$.getJSON(url, function(response) {
+					$("#response").html(JSON.stringify(response));
+					setTimeout(function() {
+						getBeaconData();
+					}, 1000);
+				});
+			} else {
 				setTimeout(function() {
 					getBeaconData();
 				}, 1000);
-			});
+			}
 		}
 
 })();
