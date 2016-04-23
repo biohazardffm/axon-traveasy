@@ -57,7 +57,7 @@
 					$("#response").html(data);
 				})
 				.fail(function( jqXHR, textStatus, errorThrown ) {
-					$("#response").html(errorThrown);
+					$("#response").html(textStatus);
 				});
 
 				setTimeout(function() {
