@@ -45,7 +45,9 @@
 			if(cb.proximity < 1) {
 				folder = "inside";
 			}
-			$.getJSON("http://192.168.43.78:3000/"+ folder +"/"+ cb.uuid +"/"+ deviceid, function(response) {
+			var url = "http://192.168.43.78:3000/"+ folder +"/"+ cb.uuid +"/"+ deviceid;
+			$("#uuid").html(url);
+			$.getJSON(, function(response) {
 				$("#uuid").html(JSON.stringify(response));
 			});
 		}
