@@ -6,5 +6,10 @@
   {
     "uuid": "2F234454-CF6D-4A0F-ADF2-F4911BA9FFA6",
     "identity": "radbeacon"
-  }
+  },
+  {
+    "uuid": "093E82AF-1AF1-5D23-A161-7631AC741CD9",
+    "identity": "iPhone5"
+  },
+
 ]
