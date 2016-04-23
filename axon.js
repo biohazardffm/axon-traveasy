@@ -3,12 +3,6 @@
     //call the UI page "home"
     App.load('home');
 
-    setInterval(function() {
-        $.getJSON("http://localhost:8080/nervousnet-api/raw-sensor-data/GPS", function(data) {
-            $("#sensordata").html(JSON.stringify(data));
-        });
-    }, 1000);
-
 		function getBeaconData() {
 			$.getJSON("http://localhost:8080/nervousnet-api/raw-sensor-data/Beacon", function(data) {
 				// $.post("http://localhost:8080/nervousnet-api/log", JSON.stringify(data));
@@ -51,18 +45,12 @@
 			}
 			var url = "http://192.168.43.78.xip.io:3000/"+ folder +"/"+ cb.uuid +"/"+ deviceid;
 			$("#uuid").html(url);
-			if(cb.uuid) {
 				$.getJSON(url, function(response) {
-					$("#response").html(JSON.stringify(response));
+					$("#response").html(response);
 					setTimeout(function() {
 						getBeaconData();
 					}, 1000);
 				});
-			} else {
-				setTimeout(function() {
-					getBeaconData();
-				}, 1000);
-			}
 		}
 
 })();
