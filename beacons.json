@@ -2,5 +2,9 @@
   {
     "uuid": "B9407F30-F5F8-466E-AFF9-25556B57FE6D",
     "identity": "estimote"
+  },
+  {
+    "uuid": "2F234454-CF6D-4A0F-ADF2-F4911BA9FFA6",
+    "identity": "radbeacon"
   }
 ]
