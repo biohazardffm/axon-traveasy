@@ -52,7 +52,8 @@
 
 				if(cb.uuid && dist < 10) {
 					$.ajax({
-						url: url
+						url: url,
+						async : false
 					})
 					.done(function(data) {
 						$("#response").html(data);
