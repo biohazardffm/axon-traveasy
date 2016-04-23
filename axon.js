@@ -17,7 +17,11 @@
 			});
 		}
 
-		setInterval(function() {
+		// setInterval(function() {
+		// 	getBeaconData();
+		// }, 1000);
+
+		setTimeout(function() {
 			getBeaconData();
 		}, 1000);
 
@@ -28,7 +32,7 @@
 				$("#uuid").html(JSON.stringify(data));
 				deviceid = data["uuid"];
 			});
-		}, 2000);
+		}, 900);
 
 		// find the closest beacon and send for processing
 		function processBeacons(beacons) {
@@ -42,13 +46,16 @@
 				}
 			}
 			var folder = "outside";
-			if(cb.proximity < 1) {
+			if(dist < 1) {
 				folder = "inside";
 			}
 			var url = "http://192.168.43.78.xip.io:3000/"+ folder +"/"+ cb.uuid +"/"+ deviceid;
 			$("#uuid").html(url);
 			$.getJSON(url, function(response) {
-				$("#uuid").html(JSON.stringify(response));
+				$("#response").html(JSON.stringify(response));
+				setTimeout(function() {
+					getBeaconData();
+				}, 1000);
 			});
 		}
 
