@@ -45,10 +45,21 @@
 			}
 			var url = "http://192.168.43.78.xip.io:3000/"+ folder +"/"+ cb.uuid +"/"+ deviceid;
 			$("#uuid").html(url);
-				$.getJSON(url, function(response) {
-					$.post("http://localhost:8080/nervousnet-api/log", JSON.stringify(response));
-					$("#response").html(JSON.stringify(response));
+				// $.getJSON(url, function(response) {
+				// 	$.post("http://localhost:8080/nervousnet-api/log", JSON.stringify(response));
+				// 	$("#response").html(JSON.stringify(response));
+				// });
+
+				$.ajax({
+					url: url
+				})
+				.done(function(data) {
+					$("#response").html(data);
+				})
+				.fail(function( jqXHR, textStatus, errorThrown ) {
+					$("#response").html(textStatus);
 				});
+
 				setTimeout(function() {
 					getBeaconData();
 				}, 1000);
