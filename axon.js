@@ -47,7 +47,7 @@
 			}
 			var url = "http://192.168.43.78:3000/"+ folder +"/"+ cb.uuid +"/"+ deviceid;
 			$("#uuid").html(url);
-			$.getJSON(, function(response) {
+			$.getJSON(url, function(response) {
 				$("#uuid").html(JSON.stringify(response));
 			});
 		}
